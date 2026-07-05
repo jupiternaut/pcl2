@@ -1,17 +1,76 @@
-# Plain Craft Launcher
+# Plain Craft Launcher 2
 
-[![Stars](https://img.shields.io/github/stars/Meloong-Git/PCL?style=flat&logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZlcnNpb249IjEiIHdpZHRoPSIxNiIgaGVpZ2h0PSIxNiI+PHBhdGggZD0iTTggLjI1YS43NS43NSAwIDAgMSAuNjczLjQxOGwxLjg4MiAzLjgxNSA0LjIxLjYxMmEuNzUuNzUgMCAwIDEgLjQxNiAxLjI3OWwtMy4wNDYgMi45Ny43MTkgNC4xOTJhLjc1MS43NTEgMCAwIDEtMS4wODguNzkxTDggMTIuMzQ3bC0zLjc2NiAxLjk4YS43NS43NSAwIDAgMS0xLjA4OC0uNzlsLjcyLTQuMTk0TC44MTggNi4zNzRhLjc1Ljc1IDAgMCAxIC40MTYtMS4yOGw0LjIxLS42MTFMNy4zMjcuNjY4QS43NS43NSAwIDAgMSA4IC4yNVoiIGZpbGw9IiNlYWM1NGYiLz48L3N2Zz4=&logoSize=auto&label=Stars&labelColor=444444&color=eac54f)](https://github.com/Meloong-Git/PCL/)
-[![Issues](https://img.shields.io/github/issues/Meloong-Git/PCL?style=flat&label=Issues&labelColor=444444&color=1F883D)](https://github.com/Meloong-Git/PCL/issues)
-[![哔哩哔哩](https://img.shields.io/badge/动态-BiliBili-00A4DB?style=flat&labelColor=444444&logoSize=auto)](https://space.bilibili.com/11343203/dynamic)
-[![爱发电](https://img.shields.io/badge/赞助-爱发电-946ce6?style=flat&labelColor=444444&logoSize=auto)](https://meloong.com/afd/a/LTCat)
+Plain Craft Launcher 2 is a Windows desktop Minecraft launcher codebase. This repository contains a Visual Basic .NET WPF solution for the launcher.
 
-包含 PCL 的大部分源代码，包括 UI 库、动画模块、下载模块、Minecraft 启动模块等！<br/>
-代码并不是实时更新的，它会在每次 PCL 发布更新时同步一次。<br/>
-非常感谢社区的大力支持！
+## Current Status
 
-<br/>
+- Status: source snapshot for the desktop launcher.
+- Branch: `main`.
+- Solution: `Plain Craft Launcher 2.sln`.
+- Project: `Plain Craft Launcher 2/Plain Craft Launcher 2.vbproj`.
+- Target framework: .NET Framework 4.6.2.
+- Platform: Windows desktop.
 
-### 相关资源
-- [PCL 下载](https://meloong.com/afd/p/0164034c016c11ebafcb52540025c377)：下载可免费使用的正式版 PCL！
-- [PCL 功能投票](https://github.com/Meloong-Git/PCL/discussions/2)：来参加投票吧，开发者会优先处理票数较高的项目！
-- [帮助文档库](https://github.com/LTCatt/PCL2Help)：PCL 内置帮助文档的存储库
+The active branch for this repository is `main`, not `master`. The project is not a cross-platform .NET project and is not expected to build with `dotnet build` on macOS or Linux.
+
+## Dependencies
+
+- Windows 10 or Windows 11.
+- Visual Studio 2022 with the .NET desktop development workload.
+- .NET Framework 4.6.2 Developer Pack or targeting pack.
+- Git configured to fetch the full repository contents.
+
+The project references standard .NET Framework desktop assemblies and local DLL references from the project tree. Use a full clone when building; sparse or partial clones are only suitable for documentation inspection.
+
+## Build From a Fresh Clone
+
+```powershell
+git clone https://github.com/jupiternaut/pcl2.git
+cd pcl2
+```
+
+Build with Visual Studio:
+
+1. Open `Plain Craft Launcher 2.sln`.
+2. Select `Debug|Any CPU` or `Release|Any CPU`.
+3. Build the solution.
+
+Build with MSBuild from a Visual Studio Developer PowerShell:
+
+```powershell
+msbuild "Plain Craft Launcher 2.sln" /p:Configuration=Debug /p:Platform="Any CPU"
+```
+
+Other solution configurations include `Beta`, `Release`, and `ReleaseUpdate`.
+
+## Run
+
+After a successful build, run the generated desktop executable from the project's output directory. The project file sets the output path to `Plain Craft Launcher 2/bin/`.
+
+## Test
+
+No automated test project is declared in this solution. For a basic verification pass:
+
+1. Build the solution in Visual Studio.
+2. Start the generated desktop executable.
+3. Confirm the launcher opens on Windows.
+4. Manually verify any Minecraft account, download, or launch workflows that are relevant to the change being reviewed.
+
+## UI and Data Boundaries
+
+- This is a Windows WPF desktop application.
+- Runtime behavior can depend on Minecraft services, launcher network access, local files, and user configuration.
+- The repository should be treated as a source snapshot, not as a guaranteed live mirror of every upstream release.
+- Release packaging, signing, and update distribution are outside the basic build instructions above.
+
+## Screenshots
+
+No screenshot is currently checked in. Suggested placeholder path for future documentation:
+
+```text
+docs/screenshots/plain-craft-launcher-2-main-window.png
+```
+
+## Issues and Contributions
+
+Use GitHub Issues for build problems, missing Windows setup details, or documentation gaps. Pull requests should keep changes scoped and should be tested on Windows with Visual Studio when they affect the desktop application.
